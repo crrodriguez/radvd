@@ -131,6 +131,6 @@ dist-hook:
 	rm -f $(distdir)/gram.h
 	rm -f $(distdir)/scanner.c
 
-scanner.h : radvd-scanner.o
-gram.o : scanner.h
+scanner.h : radvd-scanner.$(OBJEXT)
+gram.$(OBJEXT) : scanner.h
 
