@@ -43,12 +43,12 @@ sbin_PROGRAMS = \
 radvd_SOURCES = \
 	$(COMMON_SRC) \
 	device-common.c \
+	scanner.l \
 	gram.h \
 	gram.y \
 	interface.c \
 	process.c \
 	radvd.c \
-	scanner.l \
 	send.c \
 	timer.c
 
@@ -131,5 +131,6 @@ dist-hook:
 	rm -f $(distdir)/gram.h
 	rm -f $(distdir)/scanner.c
 
-scanner.o: gram.h
+scanner.h : radvd-scanner.o
+gram.o : scanner.h
 
